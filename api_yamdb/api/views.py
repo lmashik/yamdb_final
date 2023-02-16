@@ -16,18 +16,16 @@ from .mixins import CLDViewSet
 from .permissions import (IsAdminOrReadOnly,
                           IsAuthorOrModeratorOrAdminOrReadOnly,
                           IsSuperUserOrAdmin)
-from .serializers import (
-    CategorySerializer,
-    CheckConfirmationCodeSerializer,
-    CommentSerializer,
-    GenreSerializer,
-    ReadOnlyTitleSerializer,
-    ReviewSerializer,
-    ReviewUpdateSerializer,
-    SendCodeSerializer,
-    TitleSerializer,
-    UserSerializer
-)
+from .serializers import (CategorySerializer,
+                          CheckConfirmationCodeSerializer,
+                          CommentSerializer,
+                          GenreSerializer,
+                          ReadOnlyTitleSerializer,
+                          ReviewSerializer,
+                          ReviewUpdateSerializer,
+                          SendCodeSerializer,
+                          TitleSerializer,
+                          UserSerializer)
 
 
 class CategoryViewSet(CLDViewSet):
