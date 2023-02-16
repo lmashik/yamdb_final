@@ -13,11 +13,9 @@ from users.models import User
 
 from .filters import FilterForTitle
 from .mixins import CLDViewSet
-from .permissions import (
-    IsAdminOrReadOnly,
-    IsAuthorOrModeratorOrAdminOrReadOnly,
-    IsSuperUserOrAdmin
-)
+from .permissions import (IsAdminOrReadOnly,
+                          IsAuthorOrModeratorOrAdminOrReadOnly,
+                          IsSuperUserOrAdmin)
 from .serializers import (
     CategorySerializer,
     CheckConfirmationCodeSerializer,
