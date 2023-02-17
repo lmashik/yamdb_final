@@ -13,19 +13,23 @@ from users.models import User
 
 from .filters import FilterForTitle
 from .mixins import CLDViewSet
-from .permissions import (IsAdminOrReadOnly,
-                          IsAuthorOrModeratorOrAdminOrReadOnly,
-                          IsSuperUserOrAdmin)
-from .serializers import (CategorySerializer,
-                          CheckConfirmationCodeSerializer,
-                          CommentSerializer,
-                          GenreSerializer,
-                          ReadOnlyTitleSerializer,
-                          ReviewSerializer,
-                          ReviewUpdateSerializer,
-                          SendCodeSerializer,
-                          TitleSerializer,
-                          UserSerializer)
+from .permissions import (
+    IsAdminOrReadOnly,
+    IsAuthorOrModeratorOrAdminOrReadOnly,
+    IsSuperUserOrAdmin,
+)
+from .serializers import (
+    CategorySerializer,
+    CheckConfirmationCodeSerializer,
+    CommentSerializer,
+    GenreSerializer,
+    ReadOnlyTitleSerializer,
+    ReviewSerializer,
+    ReviewUpdateSerializer,
+    SendCodeSerializer,
+    TitleSerializer,
+    UserSerializer,
+)
 
 
 class CategoryViewSet(CLDViewSet):
