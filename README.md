@@ -1,7 +1,5 @@
 # Проект yamdb_final
 
-Адрес сервиса: http://158.160.17.165/api/v1/
-
 Статус workflow: ![badge](https://github.com/lmashik/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
 ----------------------------------------
