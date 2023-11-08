@@ -203,5 +203,5 @@ http://<host>/api/v1/titles/{title_id}/reviews/
 
 ----------------------------------------
 ## Авторы проекта
-Автор yamdb_final: Мария Лапикова (Михайлова), mashik.mikhaylova@yandex.ru  
+Автор yamdb_final: Мария Лапикова (Михайлова), mashik_p@mail.ru  
 Авторы YaMDb: Шовтюк Елена, Лапикова (Михайлова) Мария, Пиголкин Андрей
