@@ -37,7 +37,7 @@ git clone https://github.com/lmashik/infra_sp2.git
 ```
 
 ```bash
-cd infra_sp2/infra
+cd infra
 ```
 
 2. Создаем файл .env для переменных виртуального окружения и заходим в него
@@ -60,34 +60,60 @@ SECRET_KEY=<secret_key>
 ```bash
 sudo docker-compose up -d
 ```
+(Для новых версий docker-compose как плагина к docker
+```bash
+sudo docker compose up -d
+```
+)
 
 5. Выполняем миграции внутри контейнера web
 ```bash
 sudo docker-compose exec web python manage.py migrate
 ```
+или
+```bash
+sudo docker compose exec web python manage.py migrate
+```
 
-6. Открываем проект по адресу http://localhost/api/v1  
+6. Собираем статику
+```bash
+sudo docker-compose exec web python manage.py collectstatic
+```
+или
+```bash
+sudo docker compose exec web python manage.py collectstatic
+```
+
+7. Открываем проект по адресу http://localhost/api/v1  
 или его административную часть по адресу http://localhost/admin/
 
 При необходимости наполняем базу резервными данными
-7. Узнаем id контейнера (web), в который нужно скопировать дамп
+8. Узнаем id контейнера (web), в который нужно скопировать дамп
 ```bash
 sudo docker ps
 ```
 
-8. Копируем дамп в контейнер web
+9. Копируем дамп в контейнер web
 ```bash
 sudo docker cp fixtures.json <CONTAINER_ID>:app/
 ```
 
-9. Заливаем данные в базу
+10. Заливаем данные в базу
 ```bash
 sudo docker-compose exec web python manage.py loaddata fixtures.json
 ```
+или
+```bash
+sudo docker compose exec web python manage.py loaddata fixtures.json
+```
 
-10. Удаляем дамп из контейнера
+11. Удаляем дамп из контейнера
 ```bash
 sudo docker-compose exec web rm ./fixtures.json
+```
+или
+```bash
+sudo docker compose exec web rm ./fixtures.json
 ```
 
 ----------------------------------------
@@ -95,7 +121,7 @@ sudo docker-compose exec web rm ./fixtures.json
 
 ### Регистрация
 Для получения кода подтверждения необходимо отправить POST запрос 
-к эндпоинту http://158.160.17.165/api/v1/auth/signup/, в теле запроса 
+к эндпоинту http://<host>/api/v1/auth/signup/, в теле запроса 
 указать:
 
 ```
@@ -109,7 +135,7 @@ sudo docker-compose exec web rm ./fixtures.json
 (confirmation_code) на адрес email
 
 Для получения токена необходимо отправить POST запрос к эндпоинту 
-http://158.160.17.165/api/v1/auth/token/, в теле запроса указать:
+http://<host>/api/v1/auth/token/, в теле запроса указать:
 
 ```
 {
@@ -140,10 +166,10 @@ _Authorization: Bearer <access_token>_
 Ресурс - часть системы, с которой можно работать. В YaMDb ресурсами 
 являются: категории, жанры, произведения, отзывы, комментарии, пользователи.
 У каждого ресурса уникальный URL. Для получения списка доступных ресурсов 
-выполните GET-запрос к корневому URL API http://158.160.17.165/api/v1/, 
+выполните GET-запрос к корневому URL API http://<host>/api/v1/, 
 а также к URL: 
-http://158.160.17.165/api/v1/titles/{title_id}/reviews/ 
-и http://158.160.17.165/api/v1/titles/{title_id}/reviews/{review_id}/comments/
+http://<host>/api/v1/titles/{title_id}/reviews/ 
+и http://<host>/api/v1/titles/{title_id}/reviews/{review_id}/comments/
 
 Возможные ресурсы API:
 
